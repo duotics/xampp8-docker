@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  my_xampp5:
+  myxampp:
     build: .
     container_name: myXampp8
     ports:
@@ -10,15 +10,16 @@ services:
       - "${PORT_HTTPS}:443"
       - "${PORT_MYSQL}:3306"
     volumes:
-      - "./config:/opt/lampp/apache2/conf.d"
       - "./www:/www"
-      - "mX8_db:/opt/lampp/var/mysql"
-      #- "./data:/opt/lampp/var/mysql"
+      - "./log/apache:/var/log/apache2"
+      - "./log/mysql:/var/log/mysql"
+      - "./config:/opt/lampp/apache2/conf.d"
+      - "myXdb:/opt/lampp/var/mysql"
     networks:
-      - mX8_net
+      - myXnet
     restart: always
 
 volumes:
-  mX8_db:
+  myXdb:
 networks:
-  mX8_net:
+  myXnet:
