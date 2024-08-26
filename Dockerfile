@@ -11,15 +11,6 @@ RUN apt-get update -y && \
     wget -O composer-setup.php https://getcomposer.org/installer && \
     php composer-setup.php --install-dir=/usr/local/bin --filename=composer && \
     rm composer-setup.php && \
-    # Instalar Node.js
-    curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt-get install -y nodejs gcc g++ make && \
-    # Instalar npm
-    apt-get install -y npm || apt-get install -f -y && \
     # Limpiar
     apt-get autoremove --purge -y && apt-get autoclean -y && apt-get clean -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# Configurar el entorno
-EXPOSE 22 80 443 3306
-VOLUME ["/www", "/opt/lampp/var/mysql"]
