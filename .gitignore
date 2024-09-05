@@ -1,5 +1,7 @@
-.env
-/config/*
+/.vscode/
+/log/
 /www/*
 /data/*
+/db/*
+.env
 *.zip
