@@ -10,8 +10,7 @@ services:
     volumes:
       - "./www:/www"
       - "./config/apache:/opt/lampp/apache2/conf.d" # Configuraciones adicionales Apache
-      - "./config/php/php.ini:/opt/lampp/etc/php.ini" # Monta tu php.ini personalizado
-      - "./config/php/conf.d:/opt/lampp/etc/php.d" # Configuraciones adicionales PHP
+      - "./config/php/conf.d:/opt/lampp/etc/conf.d" # Configuraciones adicionales PHP
       - "./log/apache:/var/log/apache2"
       - "./log/mysql:/var/log/mysql"
       - "./log/lampp:/opt/lampp/logs"

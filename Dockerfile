@@ -17,5 +17,8 @@ RUN apt-get update -y && \
     apt-get autoremove --purge -y && apt-get autoclean -y && apt-get clean -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Establecer la variable de entorno PHP_INI_SCAN_DIR para que PHP escanee el directorio adicional
-ENV PHP_INI_SCAN_DIR=/opt/lampp/etc/php.d
+# Establecer la variable de entorno PHP_INI_SCAN_DIR para que PHP escanee tanto el directorio original como el adicional
+ENV PHP_INI_SCAN_DIR=/opt/lampp/etc/conf.d
+
+# Crear el directorio adicional para configuraciones personalizadas
+RUN mkdir -p /opt/lampp/etc/conf.d
