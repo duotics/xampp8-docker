@@ -13,6 +13,8 @@ RUN apt-get update -y && \
     rm composer-setup.php && \
     # Instalar xDebug usando pecl
     pecl install xdebug && \
+    # Instalar APCu usando pecl
+    pecl install apcu && \
     # Limpiar
     apt-get autoremove --purge -y && apt-get autoclean -y && apt-get clean -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
